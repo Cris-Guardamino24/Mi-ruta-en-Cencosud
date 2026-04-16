@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root{
+    --background-color:#d7d7d7;
+    --color-principal:rgb(237,135,60);
+    --color-texto:#1357a9;
+    --color-hover:rgb(243,175,125);
+    --color-titulo:rgb(234, 217, 200);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-image:url(https://media.istockphoto.com/id/1947499362/es/foto/grupo-feliz-de-gente-de-negocios-discutiendo-la-estrategia-durante-la-reuni%C3%B3n-del-equipo-en-el.jpg?s=612x612&w=is&k=20&c=bhwpzDXOCRJqXQF7XyUDvnE7elRLzq-Gkh4oETHHo2c=);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* 👇 CAPA DIFUMINADA */
+body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    backdrop-filter: blur(8px); /* 🔥 DIFUMINADO */
+    background: rgba(0,0,0,0.3); /* 👈 oscurece un poco (pro) */
+
+    z-index: -1;
+}
+
+/*Encabezado*/
+.head{
+    
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 120px;
+    color: var(--color-texto);
+    background-color:#FFF;
+}
+.head .contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/*LOGO*/
+.head .logo{
+    display: flex;
+    align-items: center;
+}
+
+.head .logo span{
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--color-titulo);
+}
+
+/*Menú opciones*/
+.head .menu-opciones{
+    height: auto;
+}
+.head .menu-opciones ul{
+
+    display: flex;
+    flex-direction: row;
+}
+.head .menu-opciones li{
+    list-style: none;
+    margin: 15px;
+}
+.head .menu-opciones a{
+    color: var(--color-texto);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 22px;
+}
+.head .menu-opciones a:hover{
+    color: var(--color-principal);
+}
+
+/*Controles usuario*/
+.head .controles-usuario{
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    order: 1;
+}
+.head .controles-usuario ion-icon{
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--color-principal);
+}
+.head .controles-usuario ion-icon:hover{
+    color: var(--color-hover);
+}
+
+
+main .seccion-1 .texto button{
+    align-self: center; /* 👈 CENTRA SOLO EL BOTÓN */
+}
+
+#btn-sign-up{
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--color-principal);
+    color: #fff;
+    font-size: 18px;
+}
+#btn-sign-up:hover{
+    background-color: var(--color-hover);
+}
+
+.head #btn-menu{
+    display: none;
+}
+
+.head #home{
+    color: var(--color-principal);
+}
+
+
+
+
+/*Main*/
+main{
+    margin-top: 80px;
+    justify-content: flex-start;
+}
+main .seccion-1 {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start; /* 👈 IZQUIERDA */
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding-left: 5px; /* opcional */
+}
+main .seccion-1 .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 👈 clave */
+    text-align: left;
+    gap: 10px;
+}
+main .seccion-1 .texto span{
+    display: block; /* 👈 MUY IMPORTANTE */
+    color: #ffffff;
+    font-size: 6vw;
+    font-weight: 900;
+    line-height: 6.5vw;
+    width: 80vw;
+    text-shadow: 8px 6px 4px rgba(0, 0, 0, 0.5);
+}
+main .seccion-1 .texto p{
+    width: 75vw;
+    font-size: 20px;
+    color: #fff;
+}
+
+main .seccion-1 .texto .precio-nuevo{
+    font-size: 25px;
+    color: var(--color);
+}
+
+
+/*Responsive*/
+@media (max-width: 865px){
+
+    .head #btn-menu{
+        display: block;
+    }
+    .head .menu-opciones{
+        height: 0;
+        background-color: #fff;
+        overflow: hidden;
+        border-bottom: 2px solid var(--color-principal);
+        transition: height 0.5s ease;
+    }
+    .head .menu-opciones.mostrar{
+        height: 350px;
+    }
+    .head .menu-opciones.min{
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    .head .menu-opciones ul{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width:325px){
+    .head .logo ion-icon{
+        display: none;
+    }
+    .head .logo span{
+        font-size: 20px;
+    }
+}
+
+
+/*Estilos responsivos main*/
+@media (max-width: 1000px){
+    main .seccion-1 {
+        width: 100%;
+    }
+
+    main .seccion-1 {
+        width: 100%;
+        justify-content: start;
+        padding-top: 25px;
+        flex-direction: column;
+    }
+    main .seccion-1 .texto{
+        text-align: center;
+        width: 80%;
+        order: 1;
+        margin-top: 20px;
+    }
+
+}
+
+
+
+
+.chatbot-toggler{
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
+    height: 50px;
+    width: 50px;
+    color: #FFF;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    background: #14519E;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.show-chatbot .chatbot-toggler{
+    transform: rotate(90deg);
+}
+
+.chatbot-toggler svg{
+    position: absolute;
+}
+.show-chatbot .chatbot-toggler svg:first-child, 
+.chatbot-toggler svg:last-child{
+    opacity: 0;
+}
+.show-chatbot .chatbot-toggler svg:last-child{
+    opacity: 1;
+}
+.chatbot{
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
+    width: 420px;
+    transform: scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #B6C9E1;
+    transform-origin:bottom right;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+    0 32px 64px -48px rgba(0,0,0,0.5);
+    transition: all 0.1s ease;
+}
+.show-chatbot .chatbot{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+.chatbot .header{
+    background: #14519E;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+}
+.chatbot .header h2{
+    color: #FFF;
+    font-size: 1.4rem;
+
+}
+.chatbot .header svg{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    color: #FFF;
+    cursor: pointer;
+    display: none;
+    transform: translateY(-50%);
+}
+.chatbot .chatbox{
+    height: 430px;
+    overflow-y: auto;
+    padding: 30px 20px 100px;
+}
+
+
+.chatbot .chat{
+    display: flex;
+}
+.chatbot .incoming span{
+    height: 32px;
+    width: 30px;
+    color: #FFF;
+    align-self: flex-end;
+    background: #14519E;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 6px;
+    margin: 0 10px 7px 0;
+}
+.chatbot .outgoing{
+    margin: 20px 0;
+    justify-content: flex-end;
+}
+.chatbot .chat p{
+    color: #FFF;
+    max-width: 75%;
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    background: #14519E;
+}
+.chatbot .incoming p{
+    color: #000;
+    background: #f2f2f2;
+    border-radius:10px 10px 10px 0;
+}
+.chatbot .chat-input{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    background: #FFF;
+    padding: 5px 20px;
+    border-top: 1px solid #ccc;
+}
+.chat-input textarea{
+    height: 55px;
+    width: 100%;
+    border: none;
+    outline: none;
+    max-height: 180px;
+    font-size: 0.95rem;
+    resize: none;
+    padding: 16px 15px 16px 0; 
+}
+.chat-input span{
+    align-self:flex-end;
+    height: 55px;
+    line-height: 55px;
+    color: #14519E;
+    font-size: 1.35rem;
+    cursor: pointer;
+    visibility: hidden;
+}
+.chat-input textarea:valid ~ span{
+    visibility: visible;
+}
+
+@media(max-width:490px){
+    .chatbot{
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+    .chatbot .chatbox{
+        height: 90%;
+    }
+    .chatbot .header svg{
+        display: block;
+    }
+}
+
+
+
+
+/* CONTENEDOR GENERAL */
+.uno{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto; /* CENTRADO */
+  padding: 20px;
+}
+
+/* OCULTAR INPUTS */
+.container input{
+  display: none;
+}
+
+/* CARDS */
+.cards {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform .4s ease, opacity .4s ease;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 0px 5px rgba(81, 81, 81, 0.47);
+}
+
+/* EFECTO SLIDER */
+#item-1:checked ~ .cards #song-1,
+#item-2:checked ~ .cards #song-2,
+#item-3:checked ~ .cards #song-3 {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+#item-1:checked ~ .cards #song-2,
+#item-2:checked ~ .cards #song-3,
+#item-3:checked ~ .cards #song-1 {
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+#item-1:checked ~ .cards #song-3,
+#item-2:checked ~ .cards #song-1,
+#item-3:checked ~ .cards #song-2 {
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* PLAYER */
+.player {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 10px;
+}
+
+.upper-part {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.play-icon{
+  margin-right: 10px;
+}
+
+.song-info {
+  width: 100%;
+}
+
+.song-info .title {
+  color: #403d40;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.sub-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle, .time {
+  font-size: 12px;
+  color: #a5a5a5;
+}
+
+/* BARRA */
+.progress-bar {
+  height: 3px;
+  width: 100%;
+  background-color: #e9efff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 60%;
+  height: 100%;
+  background-color: #2992dc;
+  border-radius: 6px;
+}
+
+/* INFO SLIDE */
+.info-area {
+  width: 100%;
+  position: relative;
+  transition: transform .4s ease-in;
+}
+
+#item-1:checked ~ .player #test {
+  transform: translateY(0);
+}
+
+#item-2:checked ~ .player #test {
+  transform: translateY(-40px);
+}
+
+#item-3:checked ~ .player #test {
+  transform: translateY(-80px);
+}
+
+/* BOTÓN */
+.boton{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-699{
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-principal);
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-699:hover{
+  background: var(--color-hover);
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 768px){
+
+  .card{
+    width: 80%;
+  }
+
+  .cards{
+    height: 250px;
+  }
+
+  .container{
+    padding: 10px;
+  }
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 480px){
+
+  .card{
+    width: 90%;
+  }
+
+  .cards{
+    height: 200px;
+  }
+
+  .player{
+    max-width: 90%;
+  }
+
+  .song-info .title{
+    font-size: 12px;
+  }
+
+  .subtitle, .time{
+    font-size: 10px;
+  }
+
+  .btn-699{
+    width: 80%;
+  }
+}
+.uno{
+    text-align: center;
+    background-color: #eff3f7;
+
+    width: 100%;
+    padding: 80px 20px; /* 👈 reemplaza height */
+    margin: 40px auto;
+    max-width: 1200px;
+    border-radius: 20px;
+}
+
+/* TÍTULOS */
+.uno h1{
+    font-size: 70px;
+}
+
+.uno h2{
+    font-size: 28px;
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 768px){
+
+    .uno{
+        padding: 60px 15px;
+    }
+
+    .uno h1{
+        font-size: 45px;
+    }
+
+    .uno h2{
+        font-size: 22px;
+    }
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 480px){
+
+    .uno{
+        padding: 50px 10px;
+    }
+
+    .uno h1{
+        font-size: 32px;
+    }
+
+    .uno h2{
+        font-size: 18px;
+    }
+}
+
+
+/* OCULTAR TODAS LAS INFO */
+.song-info{
+  opacity: 0;
+  transform: translateY(20px);
+  position: absolute;
+  transition: all 0.4s ease;
+}
+
+#item-1:checked ~ .player #song-info-1,
+#item-2:checked ~ .player #song-info-2,
+#item-3:checked ~ .player #song-info-3{
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
