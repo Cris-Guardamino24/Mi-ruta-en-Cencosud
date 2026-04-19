@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Contacto Cencosud</title>
+<link rel="stylesheet" href="../CSS/todo.css">
+    <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts Linck-For Icons-->
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  /* FONDO PRO */
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),
+  url("https://media.istockphoto.com/id/1947499362/es/foto/grupo-feliz-de-gente-de-negocios-discutiendo-la-estrategia-durante-la-reuni%C3%B3n-del-equipo-en-el.jpg?s=612x612&w=is&k=20&c=bhwpzDXOCRJqXQF7XyUDvnE7elRLzq-Gkh4oETHHo2c=");
+  background-size:cover;
+  background-position:center;
+}
+
+/* CONTENEDOR */
+.container{
+  width:100%;
+  padding:20px;
+  display:flex;
+  justify-content:center;
+}
+
+/* CARD */
+.form-card{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  animation:fadeIn 0.6s ease;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* TITULO */
+.form-card h2{
+  text-align:center;
+  color:#0074FF;
+  margin-bottom:10px;
+}
+
+.form-card p{
+  text-align:center;
+  font-size:14px;
+  color:#555;
+  margin-bottom:20px;
+}
+
+/* INPUTS */
+.form-group{
+  margin-bottom:15px;
+}
+
+label{
+  font-weight:600;
+  font-size:14px;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  margin-top:5px;
+  transition:0.3s;
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color:#0074FF;
+  outline:none;
+  box-shadow:0 0 8px rgba(0,116,255,0.3);
+}
+
+/* MENSAJE */
+#estado{
+  text-align:center;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+/* BOTÓN */
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:15px;
+  background:linear-gradient(135deg,#0074FF,#005ad1);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,116,255,0.4);
+}
+
+/* RESPONSIVE */
+@media(max-width:500px){
+  .form-card{
+    padding:20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+      <header class="head">
+        <div class="contenedor">
+            <div class="logo">
+                <span><img src="../IMG/logoCencosud.png" alt="" width="190px"></span>
+            </div>
+
+            <div class="menu-opciones">
+                <ul>
+                    <li>
+                        <a id="home" href="index.html">Explorar</a>
+                    </li>
+                    <li>
+                        <a href="perfil.html">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="Programas.html">Programas</a>
+                    </li>
+                    <li>
+                        <a href="Programas.html">Capacitación</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="controles-usuario">
+                <button id="btn-sign-up" onclick = " window.location.href = 'tuRuta.html'">Quiero crecer</button>
+                <ion-icon id="btn-menu" name="menu"></ion-icon>
+            </div>
+        </div>
+        
+    </header>
+    <br><br><br>
+
+<div class="container">
+  <div class="form-card">
+
+    <h2>¡Conectemos!</h2>
+    <p>Descubre tu camino profesional con nosotros</p>
+
+    <form id="formulario">
+
+      <div class="form-group">
+        <label>Nombres</label>
+        <input type="text" name="nombres">
+      </div>
+
+      <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" name="apellidos">
+      </div>
+
+      <div class="form-group">
+        <label>Edad</label>
+        <input type="number" name="edad">
+      </div>
+
+      <div class="form-group">
+        <label>Grado de estudios</label>
+        <select name="grado">
+          <option value="">Selecciona</option>
+          <option>Secundaria</option>
+          <option>Técnico</option>
+          <option>Universitario</option>
+          <option>Profesional</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Ciudad</label>
+        <input type="text" name="ciudad">
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" name="telefono">
+      </div>
+
+      <div class="form-group">
+        <label>Correo</label>
+        <input type="email" name="correo">
+      </div>
+
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea name="mensaje" rows="4"></textarea>
+      </div>
+
+      <p id="estado"></p>
+
+      <button type="submit">Enviar Mensaje</button>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+
+const form = document.getElementById("formulario");
+const estado = document.getElementById("estado");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(form));
+
+  const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+  const telRegistro = /^[0-9]{7,15}$/;
+  const correoRegistro = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(
+    !data.nombres || !data.apellidos || !data.edad ||
+    data.edad < 15 || data.edad > 45 ||
+    !data.grado || !data.ciudad ||
+    !data.telefono || !data.correo || !data.mensaje
+  ){
+    return mostrar("❌ Completa todos los campos correctamente","red");
+  }
+
+  if(!soloLetras.test(data.nombres) || !soloLetras.test(data.apellidos)){
+    return mostrar("❌ Solo letras en nombres","red");
+  }
+
+  if(!telRegistro.test(data.telefono)){
+    return mostrar("❌ Teléfono inválido","red");
+  }
+
+  if(!correoRegistro.test(data.correo)){
+    return mostrar("❌ Correo inválido","red");
+  }
+
+  if(data.mensaje.length < 10){
+    return mostrar("❌ Mensaje muy corto","red");
+  }
+
+  console.log("Datos:", data);
+
+  mostrar("✅ Enviado correctamente","#0074FF");
+  form.reset();
+});
+
+function mostrar(msg,color){
+  estado.textContent = msg;
+  estado.style.color = color;
+
+  setTimeout(()=>{
+    estado.textContent = "";
+  },5000);
+}
+
+</script>
+<script src="../JS/menu.js"></script>
+</body>
+</html>

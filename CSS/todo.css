@@ -1,0 +1,469 @@
+@import 
+url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'); 
+
+/* ===== VARIABLES ===== */
+:root {
+    --background-color: #d7d7d7;
+    --color-principal: rgb(237,135,60);
+    --color-texto: #fff;
+    --color-hover: rgb(243,175,125);
+    --color-titulo: rgb(234,217,200);
+}
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    background: linear-gradient(135deg,#14519E,#4fa3ff);
+    margin: 0;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+
+/*Encabezado*/
+.head{
+    
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 120px;
+    color: var(--color-texto);
+    background: linear-gradient(135deg, #045996, #669eff);
+}
+.head .contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/*LOGO*/
+.head .logo{
+    display: flex;
+    align-items: center;
+}
+
+.head .logo span{
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--color-titulo);
+}
+
+/*Menú opciones*/
+.head .menu-opciones{
+    height: auto;
+}
+.head .menu-opciones ul{
+
+    display: flex;
+    flex-direction: row;
+}
+.head .menu-opciones li{
+    list-style: none;
+    margin: 15px;
+}
+.head .menu-opciones a{
+    color: var(--color-texto);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 22px;
+}
+.head .menu-opciones a:hover{
+    color: var(--color-principal);
+}
+
+/*Controles usuario*/
+.head .controles-usuario{
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    order: 1;
+}
+.head .controles-usuario ion-icon{
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--color-principal);
+}
+.head .controles-usuario ion-icon:hover{
+    color: var(--color-hover);
+}
+
+
+main .seccion-1 .texto button{
+    align-self: center; /* 👈 CENTRA SOLO EL BOTÓN */
+}
+
+#btn-sign-up{
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--color-principal);
+    color: #fff;
+    font-size: 18px;
+}
+
+#btn-sign{
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--color-principal);
+    color: #fff;
+    font-size: 18px;
+}
+
+#btn-sign:hover{
+    background-color: var(--color-hover);
+}
+
+#btn-sign-up:hover{
+    background-color: var(--color-hover);
+}
+
+.head #btn-menu{
+    display: none;
+}
+
+.head #home{
+    color: var(--color-principal);
+}
+
+
+
+
+/*Main*/
+main{
+    margin-top: 80px;
+    justify-content: flex-start;
+}
+main .seccion-1 {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start; /* 👈 IZQUIERDA */
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding-left: 5px; /* opcional */
+}
+main .seccion-1 .texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 👈 clave */
+    text-align: left;
+    gap: 10px;
+}
+main .seccion-1 .texto span{
+    display: block; /* 👈 MUY IMPORTANTE */
+    color: #ffffff;
+    font-size: 6vw;
+    font-weight: 900;
+    line-height: 6.5vw;
+    width: 80vw;
+    text-shadow: 8px 6px 4px rgba(0, 0, 0, 0.5);
+}
+main .seccion-1 .texto p{
+    width: 75vw;
+    font-size: 20px;
+    color: #fff;
+}
+
+main .seccion-1 .texto .precio-nuevo{
+    font-size: 25px;
+    color: var(--color);
+}
+
+
+/*Responsive*/
+@media (max-width: 865px){
+
+    .head #btn-menu{
+        display: block;
+    }
+    .head .menu-opciones{
+        height: 0;
+        background: linear-gradient(135deg, #045996, #669eff);
+        overflow: hidden;
+        border-bottom: 2px solid var(--color-principal);
+        transition: height 0.5s ease;
+    }
+    .head .menu-opciones.mostrar{
+        height: 350px;
+    }
+    .head .menu-opciones.min{
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    .head .menu-opciones ul{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width:325px){
+    .head .logo ion-icon{
+        display: none;
+    }
+    .head .logo span{
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+/* ===== CONTENIDO ===== */
+.main-content {
+    margin-top: 130px;
+    padding: 20px;
+}
+
+/* ===== CONTENEDORES ===== */
+.container {
+    display: none;
+    min-height: calc(100vh - 130px);
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    display: flex;
+}
+
+/* ===== CARD ===== */
+.card2 {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    animation: fadeIn 0.6s ease;
+}
+
+.card2 h2{
+    padding: 20px;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* ===== INPUTS ===== */
+.input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* ===== BOTONES ===== */
+.buttonCard {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg,#045996,#669eff);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buttonCard:hover {
+    transform: scale(1.03);
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard {
+    display: none;
+    max-width: 900px;
+    margin: auto;
+}
+
+.header {
+    background: linear-gradient(135deg,#045996,#669eff);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ===== BOX ===== */
+.box {
+    background: white;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* ===== QUIZ ===== */
+.quiz {
+    margin-top: 15px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+/* ===== OPCIONES ===== */
+.opcion {
+    padding: 14px;
+    margin: 8px 0;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcion:hover {
+    background: #e6f0ff;
+    transform: translateX(5px);
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/*Responsive*/
+@media (max-width: 865px){
+
+    .head #btn-menu{
+        display: block;
+    }
+    .head .menu-opciones{
+        height: 0;
+        background: linear-gradient(135deg, #045996, #669eff);
+        overflow: hidden;
+        border-bottom: 2px solid var(--color-principal);
+        transition: height 0.5s ease;
+    }
+    .head .menu-opciones.mostrar{
+        height: 350px;
+    }
+    .head .menu-opciones.min{
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    .head .menu-opciones ul{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width:325px){
+    .head .logo ion-icon{
+        display: none;
+    }
+    .head .logo span{
+        font-size: 20px;
+    }
+}
+
+
+
+
+.footer {
+  background: linear-gradient(135deg, #045996, #00b4d8);
+  color: white;
+  padding: 50px 20px;
+}
+
+.footer-container {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+}
+
+/* COLUMNAS */
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #dbeafe;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: white;
+}
+
+/* LOGO */
+.logo-footer {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+/* BOTÓN */
+.btn-denuncia {
+  background: transparent;
+  border: 1px solid white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.btn-denuncia:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* SOCIAL */
+.social span {
+  display: inline-block;
+  border: 1px solid white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+
+

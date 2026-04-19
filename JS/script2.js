@@ -1,40 +1,39 @@
-const menuOpciones = document.querySelector(".menu-opciones");
-const btnSignUp = document.getElementById("btn-sign-up");
-const header = document.querySelector("header");
-const controlesUsuario = document.querySelector(".controles-usuario");
-const contenedor = document.querySelector(".contenedor");
-const btnMenu = document.getElementById("btn-menu");
+new Swiper(".wrapper", {
+  loop: true,
+  spaceBetween: 30,
+  centeredSlides:true,
 
-const responsiveY = ()=>{
-    if(window.innerHeight<=362){
-        if(menuOpciones.classList.contains("mostrar"))
-            menuOpciones.classList.add("min");
-        else
-            menuOpciones.classList.remove("min");
-    }
-    else{
-        menuOpciones.classList.remove("min");
-    }
-};
-const responsive = ()=>{
-    if(window.innerWidth<=865){
-        menuOpciones.children[0].appendChild(btnSignUp);
-        header.appendChild(menuOpciones);
-    }else{
-        controlesUsuario.appendChild(btnSignUp);
-        contenedor.appendChild(menuOpciones);
-    }
+  // Autoplay
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
 
-    responsiveY();
-}
+  // Paginación (los puntitos)
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
 
-btnMenu.addEventListener("click",()=>{
-    menuOpciones.classList.toggle("mostrar");
-    responsiveY();
+  // Flechas
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // Responsive
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+  centeredSlides: true,
 });
-responsive();
-
-window.addEventListener("resize",responsive);
-
-
-

@@ -3,81 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CENCOSUD</title>
-    <link rel="stylesheet" href="../CSS/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google fonts Linck-For Icons-->
-     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-</head>
-<body>
-    <header class="head">
-        <div class="contenedor">
-            <div class="logo">
-                <span><img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Cencosud-2014.svg" alt="" width="145px"></span>
-            </div>
-
-            <div class="menu-opciones">
-                <ul>
-                    <li>
-                        <a id="home" href="index.html">Explorar</a>
-                    </li>
-                    <li>
-                        <a href="perfil.html">Perfil</a>
-                    </li>
-                    <li>
-                        <a href="#">Progreso</a>
-                    </li>
-                    <li>
-                        <a href="#">Capacitación</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="controles-usuario">
-                <ion-icon name="search"></ion-icon>
-                <button id="btn-sign-up">Página CENCOSUD</button>
-                <ion-icon id="btn-menu" name="menu"></ion-icon>
-            </div>
-        </div>
-        
-    </header>
-    <!--PAGINAS DE PERFILES LABORALES-->
-    <div class="Perfiles">
-
-    </div>
-
-
-
-        <button class="chatbot-toggler">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-        </svg>
-    </button>
-    <div class="chatbot">
-        <header class="header">
-            <h2>Chatbot</h2>
-            <svg class="close-btn" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-            </svg>
-        </header>
-        <ul class="chatbox">
-            <li class="chat incoming">
-                <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hola, ¿en que puedo ayudarte? <br> Me podrias informar..</p>
-            </li>
-        </ul>
-        <div class="chat-input">
-            <textarea placeholder="Enviar mensage" required></textarea>
-            <span id="send-btn" class="material-symbols-outlined">send</span>
-        </div>
-    </div>
-
+    <title>Cencosud | Perfiles de Talento</title>
+    <link rel="stylesheet" href="../CSS/perriPose.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../JS/script.js"></script>
-    <script src="../JS/script2.js"></script>
+<link rel="stylesheet" href="../CSS/perfil.css">
+</head>
+<body>
+
+    <header class="head">
+        <div class="contenedor">
+            <div class="logo"><span><img src="../IMG/logoCencosud.png" alt="Cencosud" width="180px"></span></div>
+            <nav class="menu-opciones" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Explorar</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                    <li><a href="Programas.html">Programas</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><button class="btn-movil-solo" onclick="window.location.href='tuRuta.html'">Quiero crecer</button></li>
+                </ul>
+            </nav>
+            <div class="controles-usuario">
+                <button id="btn-sign-up" onclick="window.location.href='tuRuta.html'">Quiero crecer</button>
+                <ion-icon id="btn-menu" name="menu-outline" onclick="toggleMenu()"></ion-icon>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero reveal">
+        <div class="hero-content">
+            <div style="position: relative;">
+                <img src="https://www.greatplacetowork.com.pe/images/lists/las-mejores-2018/cencosud-shopping-centers/page.jpg" class="hero-image">
+                <div style="position: absolute; bottom: 20px; right: 0; background: #00A3E0; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <ion-icon name="cart-outline" style="font-size: 35px; color: white;"></ion-icon>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>#SomosCencosud,<br>líderes con propósito<br>y talento real.</h1>
+                <a href="historia.html" class="btn-hero">¡Descubre nuestra historia! →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="profile-card reveal">
+            <div style="position: relative; flex-shrink: 0;">
+                <img src="../IMG/valeria.JPG" class="profile-img" onerror="this.src='https://via.placeholder.com/220'">
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 12px; white-space: nowrap;">NIVEL 12</div>
+            </div>
+            <div style="flex: 1;">
+                <span style="background: rgba(0,0,0,0.3); padding: 3px 10px; border-radius: 50px; font-size: 11px;">ID: P001</span>
+                <h2 style="font-size: 28px; margin-top: 10px;">Valeria M.</h2>
+                <p style="color: var(--secondary); margin-bottom: 15px;">Head of Analytics • Datos & Analytics</p>
+                <div class="stats-row">
+                    <div class="stat-box"><strong>10</strong><span>Años</span></div>
+                    <div class="stat-box"><strong>Chile</strong><span>Santiago</span></div>
+                    <div class="stat-box"><strong>+40</strong><span>Logros</span></div>
+                </div>
+                <p style="font-style: italic;">"No puedes ser lo que no puedes ver. Pero puedes construir el camino para las que vienen."</p>
+                <div class="impact-bar"><div class="impact-fill" style="width: 92%;"></div></div>
+            </div>
+        </div>
+
+        <div class="profile-card reveal">
+            <div style="position: relative; flex-shrink: 0;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZFAs3JMgFku7iPhd05M0g0u_7u8awSeS5BQ&s" class="profile-img">
+                <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 12px; white-space: nowrap;">NIVEL 08</div>
+            </div>
+            <div style="flex: 1;">
+                <span style="background: rgba(0,0,0,0.3); padding: 3px 10px; border-radius: 50px; font-size: 11px;">ID: P002</span>
+                <h2 style="font-size: 28px; margin-top: 10px;">Camila R.</h2>
+                <p style="color: var(--secondary); margin-bottom: 15px;">Gerente de Marca • Marketing & Comercial</p>
+                <div class="stats-row">
+                    <div class="stat-box"><strong>8</strong><span>Años</span></div>
+                    <div class="stat-box"><strong>Perú</strong><span>Lima</span></div>
+                    <div class="stat-box"><strong>+30</strong><span>Logros</span></div>
+                </div>
+                <p style="font-style: italic;">"Nunca planeé llegar aquí. Planeé ser fiel a lo que creía — y eso me trajo aquí."</p>
+                <div class="impact-bar"><div class="impact-fill" style="width: 78%; background: var(--secondary);"></div></div>
+            </div>
+        </div>
+    </section>
+
+         <!-- MASCOTA -->
+  <div class="mascota-container">
+    <img src="../IMG/Perry_pose_v001_B_0006.png" 
+         class="mascota" 
+         id="mascota"
+         alt="Perry">
+    
+    <div id="burbuja" class="burbuja">
+      <p id="textoBurbuja">👋 ¡Hola! Soy Perry, tu guía en Cencosud.<br>¿En qué te ayudo hoy?</p>
+      <div class="opciones">
+        <button onclick="responder('ruta')">📈 Mi Ruta de Crecimiento</button>
+        <button onclick="responder('historias')">🌟 Historias Reales</button>
+        <button onclick="responder('skills')">🧠 Habilidades que buscamos</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>  
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <img src="../IMG/logoCencosud.png" class="logo-footer">
+                <button class="btn-denuncia">📢 Canal de Denuncias</button>
+                <div class="social"><span>in</span></div>
+            </div>
+            <div class="footer-col">
+                <h3>Conócenos</h3>
+                    <ul>
+        <li><a href="#">Nuestra Empresa</a></li>
+        <li><a href="#">Nuestra Historia</a></li>
+        <li><a href="#">Unidades de Negocio</a></li>
+        <li><a href="#">Proveedores</a></li>
+        <li><a href="#">Gobierno Corporativo</a></li>
+      </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Inversionistas</h3>
+                <ul>
+        <li><a href="#">Información Financiera</a></li>
+        <li><a href="#">Comunicados / Noticias</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Resumen País</a></li>
+        <li><a href="#">Información de la Acción</a></li>
+      </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Sostenibilidad</h3>
+                <ul>
+        <li><a href="#">Pilares ASG</a></li>
+        <li><a href="#">Indicadores</a></li>
+        <li><a href="#">Compromisos</a></li>
+        <li><a href="#">Acciones</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Equipo Cencosud</h3>
+                <ul>
+        <li><a href="#">#Acciones</a></li>
+        <li><a href="#">#Beneficios</a></li>
+        <li><a href="#">#TrabajaConNosotros</a></li>
+      </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Centro de Medios</h3>
+                <ul>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Suscríbete</a></li>
+      </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+const dataMarcas = {
+      metro: {
+        nombre: "Metro",
+        info: "Supermercado accesible enfocado en el ahorro diario y la cercanía con las familias.",
+        extra: "Precios bajos todos los días, gran variedad y experiencia de compra rápida."
+      },
+      wong: {
+        nombre: "Wong",
+        info: "Experiencia premium con productos de alta calidad y servicio diferenciado.",
+        extra: "Selección exclusiva, productos frescos premium y atención personalizada."
+      }
+    };
+
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modalBody");
+    const closeModal = document.getElementById("closeModal");
+
+    // Click en marcas con ripple effect
+    document.querySelectorAll(".marca").forEach(marca => {
+      marca.addEventListener("click", function(e) {
+        // Ripple effect
+        const ripple = document.createElement("span");
+        ripple.style.position = "absolute";
+        ripple.style.borderRadius = "50%";
+        ripple.style.background = "rgba(255,255,255,0.7)";
+        ripple.style.transform = "scale(0)";
+        ripple.style.animation = "rippleAnim 0.6s linear";
+        ripple.style.width = "300px";
+        ripple.style.height = "300px";
+        ripple.style.left = (e.offsetX - 150) + "px";
+        ripple.style.top = (e.offsetY - 150) + "px";
+        ripple.style.pointerEvents = "none";
+        this.appendChild(ripple);
+
+        setTimeout(() => ripple.remove(), 600);
+
+        // Abrir modal
+        const key = marca.dataset.marca;
+        const info = dataMarcas[key];
+
+        modalBody.innerHTML = `
+          <h2 style="color: #0074FF; margin-bottom: 18px;">${info.nombre}</h2>
+          <p style="font-size: 1.08rem; line-height: 1.7;">${info.info}</p>
+          <p style="margin-top: 20px; font-weight: 600; color: #0074FF;">
+            💡 ${info.extra}
+          </p>
+        `;
+        modal.classList.add("show");
+      });
+    });
+
+    closeModal.addEventListener("click", () => modal.classList.remove("show"));
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.remove("show");
+    });
+
+    // Mascota y Burbuja
+    const mascota = document.getElementById("mascota");
+    const burbuja = document.getElementById("burbuja");
+    const textoBurbuja = document.getElementById("textoBurbuja");
+
+    const mensajes = {
+      inicio: "👋 ¡Hola! Soy Perry, tu guía en Cencosud. ¿En qué te ayudo hoy?",
+      ruta: "📈 Puedes comenzar en tienda y crecer hasta posiciones en Tecnología, Marketing, Finanzas o Liderazgo regional.",
+      historias: "🌟 Muchas personas empezaron como tú y hoy lideran equipos o tiendas en Cencosud.",
+      skills: "🧠 Buscamos: Orientación al cliente, Trabajo en equipo, Comunicación efectiva y Actitud de aprendizaje."
+    };
+
+    mascota.addEventListener("click", () => {
+      burbuja.classList.toggle("show");
+      if (burbuja.classList.contains("show")) {
+        textoBurbuja.textContent = mensajes.inicio;
+      }
+    });
+
+    window.responder = function(tipo) {
+      textoBurbuja.style.transition = "all 0.3s";
+      textoBurbuja.style.opacity = "0";
+      
+      setTimeout(() => {
+        textoBurbuja.textContent = mensajes[tipo];
+        textoBurbuja.style.opacity = "1";
+      }, 200);
+    };
+
+    // Mensaje automático
+    setTimeout(() => {
+      if (!burbuja.classList.contains("show")) {
+        burbuja.classList.add("show");
+        textoBurbuja.textContent = "👀 ¡Haz clic en mí para descubrir tu futuro en Cencosud!";
+      }
+    }, 2800);
+
+    // Ripple animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes rippleAnim {
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('mostrar'); }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

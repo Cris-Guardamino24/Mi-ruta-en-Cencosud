@@ -1,0 +1,62 @@
+:root {
+      --color-principal: rgb(237, 135, 60);
+      --color-hover: rgb(243, 175, 125);
+      --azul-cenco: #045996;
+    }
+
+    body { 
+        background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); 
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+    }
+
+    /* ===== HEADER ===== */
+    .head {
+        position: fixed; top: 0; z-index: 100; width: 100%; height: 120px;
+        color: white; background: linear-gradient(135deg, #045996, #669eff);
+    }
+    .head .contenedor {
+        display: flex; justify-content: space-between; align-items: center;
+        width: 100%; max-width: 1280px; height: 100%; margin: 0 auto; padding: 0 30px;
+    }
+
+    .head .menu-opciones ul { display: flex; flex-direction: row; list-style: none; align-items: center; }
+    .head .menu-opciones li { margin: 15px; }
+    .head .menu-opciones a {
+        color: white; text-decoration: none; transition: color 0.2s ease; font-size: 22px;
+    }
+    .head .menu-opciones a:hover { color: var(--color-principal); }
+
+    #btn-sign-up {
+        border: none; cursor: pointer; width: 150px; height: 50px; border-radius: 10px;
+        background-color: var(--color-principal); color: #fff; font-size: 18px; transition: 0.3s;
+    }
+    #btn-sign-up:hover { background-color: var(--color-hover); }
+
+    .head #btn-menu { 
+        display: none; font-size: 35px; cursor: pointer; color: var(--color-principal); 
+    }
+
+    /* ===== CONTENIDO ===== */
+    .main-content { padding-top: 140px; padding-bottom: 50px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+    .glass-card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 450px; text-align: center; }
+    
+    .quiz-option { 
+        background: #f8fafc; border: 2px solid #e2e8f0; padding: 16px; 
+        border-radius: 15px; cursor: pointer; margin-bottom: 12px; transition: 0.3s; color: #333; font-weight: 500;
+    }
+    .quiz-option:hover { border-color: var(--color-principal); background: #fffaf5; transform: translateX(5px); }
+
+    input:focus { border-color: var(--azul-cenco); }
+
+    @media (max-width: 865px) {
+        .head { height: 90px; }
+        .head #btn-menu { display: block; }
+        .head .controles-usuario #btn-sign-up { display: none; }
+        .head .menu-opciones {
+            position: absolute; top: 90px; left: 0; width: 100%; height: 0;
+            background: #045996; overflow: hidden; transition: 0.5s;
+        }
+        .head .menu-opciones.mostrar { height: 450px; }
+        .head .menu-opciones ul { flex-direction: column; padding: 20px 0; }
+    }

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconocimientos Cencosud | Excelencia Unificada</title>
+    <link rel="stylesheet" href="../CSS/perriPose.css">
+    <link rel="stylesheet" href="../CSS/programa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+    <header class="head">
+        <div class="contenedor">
+            <div class="logo">
+                <span><img src="../IMG/logoCencosud.png" alt="Logo" width="190px"></span>
+            </div>
+
+            <nav class="menu-opciones" id="nav-menu">
+                <ul>
+                    <li><a id="home" href="index.html">Explorar</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                    <li><a href="Programas.html">Programas</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><button class="btn-movil-solo" onclick="window.location.href='tuRuta.html'">Quiero crecer</button></li>
+                </ul>
+            </nav>
+
+            <div class="controles-usuario">
+                <button id="btn-sign-up" onclick="window.location.href='tuRuta.html'">Quiero crecer</button>
+                <ion-icon id="btn-menu" name="menu-outline" onclick="toggleMenu()"></ion-icon>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="text reveal">
+            <h1>Somos <br>Cencosud</h1>
+            <p>Transformamos el día a día de nuestros clientes a través de un servicio extraordinario. Reconocemos el compromiso y el talento que da vida a nuestro propósito cultural.</p>
+            <div class="tag" style="border-left: 4px solid var(--secondary); background: rgba(255,122,0,0.1);">
+                ✨ Servir de forma extraordinaria en cada momento
+            </div>
+            <br>
+            <a href="#destacados" class="btn-section">Conocer ADN →</a>
+        </div>
+        <div class="image-container reveal">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600" alt="Servicio">
+        </div>
+        <div class="wave-separator">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,96L60,90.7C120,85,240,75,360,74.7C480,75,600,85,720,90.7C840,96,960,96,1080,90.7C1200,85,1320,75,1380,69.3L1440,64V120H0Z"></path></svg>
+        </div>
+    </section>
+
+    <section id="destacados" class="section">
+        <div class="text reveal">
+            <h1>ADN <br>Destacados</h1>
+            <p>Premiamos las acciones puntuales que reflejan nuestra identidad cultural y valores fundamentales.</p>
+            <div class="grid-tags">
+                <div class="tag">🤝 Colaboración</div>
+                <div class="tag">💡 Innovación</div>
+                <div class="tag">💎 Integridad</div>
+                <div class="tag">🎯 Pasión Cliente</div>
+                <div class="tag">🌀 Flexibilidad</div>
+                <div class="tag">🙌 Respeto</div>
+            </div>
+            <a href="#" class="btn-section">Postular a un compañero</a>
+        </div>
+        <div class="image-container reveal">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=600" alt="Equipo">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="text reveal">
+            <h1>Círculo de <br>Excelencia</h1>
+            <p>Honramos la maestría profesional, la permanencia y el liderazgo que inspira a otros.</p>
+            
+            <div style="margin-top:20px">
+                <h4 style="color:var(--secondary); margin-bottom:10px;">🏆 DESEMPEÑO</h4>
+                <p style="font-size:0.9rem">Colaborador del Mes • Año • Impulsa</p>
+                
+                <h4 style="color:var(--secondary); margin-bottom:10px; margin-top:15px;">⏳ TRAYECTORIA</h4>
+                <p style="font-size:0.9rem">Quinquenios • 30 Años • Legado</p>
+            </div>
+
+            <a href="#" class="btn">Ver ganadores 2025</a>
+        </div>
+        <div class="image-container reveal">
+            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6" alt="Excelencia">
+        </div>
+    </section>
+
+    <div class="mascota-container">
+        <img src="../IMG/Perry_pose_v001_B_0006.png" class="mascota" id="mascota" alt="Perry">
+        <div id="burbuja" class="burbuja">
+            <p id="textoBurbuja">👋 ¡Hola! Soy Perry, tu guía en Cencosud.<br>¿En qué te ayudo hoy?</p>
+            <div class="opciones">
+                <button onclick="responder('ruta')">📈 Mi Ruta de Crecimiento</button>
+                <button onclick="responder('historias')">🌟 Historias Reales</button>
+                <button onclick="responder('skills')">🧠 Habilidades que buscamos</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>   
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col logo-col">
+                <img src="../IMG/logoCencosud.png" class="logo-footer">
+                <button class="btn-denuncia">📢 Canal de Denuncias</button>
+                <div class="social">
+                    <span>in</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Conócenos</h3>
+                <ul>
+                    <li><a href="#">Nuestra Empresa</a></li>
+                    <li><a href="#">Nuestra Historia</a></li>
+                    <li><a href="#">Unidades de Negocio</a></li>
+                    <li><a href="#">Proveedores</a></li>
+                    <li><a href="#">Gobierno Corporativo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Inversionistas</h3>
+                <ul>
+                    <li><a href="#">Información Financiera</a></li>
+                    <li><a href="#">Comunicados / Noticias</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Resumen País</a></li>
+                    <li><a href="#">Información de la Acción</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Sostenibilidad</h3>
+                <ul>
+                    <li><a href="#">Pilares ASG</a></li>
+                    <li><a href="#">Indicadores</a></li>
+                    <li><a href="#">Compromisos</a></li>
+                    <li><a href="#">Acciones</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Equipo Cencosud</h3>
+                <ul>
+                    <li><a href="#">#Acciones</a></li>
+                    <li><a href="#">#Beneficios</a></li>
+                    <li><a href="#">#TrabajaConNosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Centro de Medios</h3>
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Suscríbete</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const dataMarcas = {
+            metro: {
+                nombre: "Metro",
+                info: "Supermercado accesible enfocado en el ahorro diario y la cercanía con las familias.",
+                extra: "Precios bajos todos los días, gran variedad y experiencia de compra rápida."
+            },
+            wong: {
+                nombre: "Wong",
+                info: "Experiencia premium con productos de alta calidad y servicio diferenciado.",
+                extra: "Selección exclusiva, productos frescos premium y atención personalizada."
+            }
+        };
+
+        const modal = document.getElementById("modal");
+        const modalBody = document.getElementById("modalBody");
+        const closeModal = document.getElementById("closeModal");
+
+        // Modal Logic
+        closeModal.addEventListener("click", () => modal.classList.remove("show"));
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.classList.remove("show");
+        });
+
+        // Mascota y Burbuja
+        const mascota = document.getElementById("mascota");
+        const burbuja = document.getElementById("burbuja");
+        const textoBurbuja = document.getElementById("textoBurbuja");
+
+        const mensajes = {
+            inicio: "👋 ¡Hola! Soy Perry, tu guía en Cencosud. ¿En qué te ayudo hoy?",
+            ruta: "📈 Puedes comenzar en tienda y crecer hasta posiciones en Tecnología, Marketing, Finanzas o Liderazgo regional.",
+            historias: "🌟 Muchas personas empezaron como tú y hoy lideran equipos o tiendas en Cencosud.",
+            skills: "🧠 Buscamos: Orientación al cliente, Trabajo en equipo, Comunicación efectiva y Actitud de aprendizaje."
+        };
+
+        mascota.addEventListener("click", () => {
+            burbuja.classList.toggle("show");
+            if (burbuja.classList.contains("show")) {
+                textoBurbuja.textContent = mensajes.inicio;
+            }
+        });
+
+        window.responder = function(tipo) {
+            textoBurbuja.style.transition = "all 0.3s";
+            textoBurbuja.style.opacity = "0";
+            
+            setTimeout(() => {
+                textoBurbuja.textContent = mensajes[tipo];
+                textoBurbuja.style.opacity = "1";
+            }, 200);
+        };
+
+        // Mensaje automático Mascota
+        setTimeout(() => {
+            if (burbuja && !burbuja.classList.contains("show")) {
+                burbuja.classList.add("show");
+                textoBurbuja.textContent = "👀 ¡Haz clic en mí para descubrir tu futuro en Cencosud!";
+            }
+        }, 2800);
+
+        // Ripple animation dynamic style
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes rippleAnim {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Lógica del menú responsive
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            const icon = document.getElementById('btn-menu');
+            menu.classList.toggle('mostrar');
+            
+            const isOpen = menu.classList.contains('mostrar');
+            icon.setAttribute('name', isOpen ? 'close-outline' : 'menu-outline');
+        }
+
+        // Animación Reveal para todas las secciones (incluyendo la nueva)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

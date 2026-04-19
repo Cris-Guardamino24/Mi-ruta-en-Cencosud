@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CENCOSUD</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/perriPose.css">
+    <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google fonts Linck-For Icons-->
      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -13,7 +15,7 @@
     <header class="head">
         <div class="contenedor">
             <div class="logo">
-                <span><img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Cencosud_logo.svg" alt="" width="145px"></span>
+                <span><img src="../IMG/logoCencosud.png" alt="" width="190px"></span>
             </div>
 
             <div class="menu-opciones">
@@ -25,17 +27,16 @@
                         <a href="perfil.html">Perfil</a>
                     </li>
                     <li>
-                        <a href="#">Progreso</a>
+                        <a href="Programas.html">Programas</a>
                     </li>
                     <li>
-                        <a href="#">Capacitación</a>
+                        <a href="historia.html">Historia</a>
                     </li>
                 </ul>
             </div>
 
             <div class="controles-usuario">
-                <ion-icon name="search"></ion-icon>
-                <button id="btn-sign-up">Página CENCOSUD</button>
+                <button id="btn-sign-up" onclick = " window.location.href = 'tuRuta.html'">Quiero crecer</button>
                 <ion-icon id="btn-menu" name="menu"></ion-icon>
             </div>
         </div>
@@ -48,104 +49,462 @@
                 <br>
                 <p>Descubre tu potencial desde el primer día. En Cencosud, te acompañamos a encontrar el rol que mejor se adapte a ti y a crecer dentro de una organización que impulsa tu desarrollo.</p>
                 <br>
-                <button id="btn-sign-up">Ver mi ruta</button>
+                <button id="btn-sign">Ver mi ruta</button>
             </div>
         </section>
     </main>
 </div>
-<div class="uno">
-    <div class="letra2">
-    <h1>TOP 3 </h1>
-    <br>
-       <div class="container">
-        <input type="radio" name="slider" id="item-1" checked>
-        <input type="radio" name="slider" id="item-2">
-        <input type="radio" name="slider" id="item-3">
-      <div class="cards">
-        <label class="card" for="item-1" id="song-1">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQojtYl7X9Nh3d_WMfOgQzJTNVOuyBtOeC57Q&s" alt="song">
-        </label>
-        <label class="card" for="item-2" id="song-2">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQojtYl7X9Nh3d_WMfOgQzJTNVOuyBtOeC57Q&s" alt="song">
-        </label>
-        <label class="card" for="item-3" id="song-3">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQojtYl7X9Nh3d_WMfOgQzJTNVOuyBtOeC57Q&s" alt="song">
-        </label>
-      </div>
-      <div class="player">
-        <div class="upper-part">
-          <div class="play-icon">
-            <svg width="20" height="20" fill="#2992dc" stroke="#2992dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-play" viewBox="0 0 24 24">
-              <defs/>
-              <path d="M5 3l14 9-14 9V3z"/>
-            </svg>
+<main class="historiasE">
+  <div class="historias">
+    <h1> HISTORIAS DE ÉXITO </h1>
+  </div><br><br>
+
+  <div class="contend">
+    <div class="wrapper">
+      <div class="card-list swiper-wrapper">
+
+        <!-- Tarjeta 1: Valeria -->
+        <div class="card swiper-slide">
+          <div class="card-image">
+            <img src="../IMG/valeria.JPG" alt="Valeria" />
+            <div class="card-tag">Estrategia Comercial</div>
           </div>
-          <div class="info-area" id="test">
-            <label class="song-info" id="song-info-1">
-              <div class="title">Crash Course</div>
-              <div class="sub-line">
-                <div class="subtitle">TV Romantica</div>
-                <div class="time">16EP</div>
+          <div class="card-content">
+            <h3 class="card-title">Análisis de Negocios</h3>
+            <p class="card-text">En 9 años pasó de cajera a Category Manager, logrando reducir costos en 10% gracias a su dominio en negociación, análisis de ventas y Excel avanzado.</p>
+            <div class="card-footer">
+              <div class="card-profile">
+                <img src="../IMG/valeria.JPG" alt="Valeria" />
+                <div class="card-profile-info">
+                  <span class="card-profile-name">Valeria</span>
+                  <span class="card-profile-role">Category Manager Regional</span>
+                </div>
               </div>
-            </label>
-            <label class="song-info" id="song-info-2">
-              <div class="title">The Glory</div>
-              <div class="sub-line">
-                <div class="subtitle">Drama</div>
-                <div class="time">8EP</div>
-              </div>
-            </label>
-            <label class="song-info" id="song-info-3">
-              <div class="title">Love To Hate You</div>
-              <div class="sub-line">
-                <div class="subtitle">Comedia Romantica</div>
-                <div class="time">10EP</div>
-              </div>
-            </label>
+              <button class="card-button" data-person="valeria">Leer más</button>
+            </div>
           </div>
         </div>
-        <div class="progress-bar">
-          <span class="progress"></span>
+
+        <!-- Tarjeta 2: Ignacio -->
+        <div class="card swiper-slide">
+          <div class="card-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXj1sLAKpscYcXz74xH48-WbhO77bkRyE1PQ&s" alt="Ignacio" />
+            <div class="card-tag">Finanzas</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">El guardián de la rentabilidad</h3>
+            <p class="card-text">En 11 años pasó de asistente contable a Subgerente de Planeamiento Financiero, recuperando saldos importantes y digitalizando procesos.</p>
+            <div class="card-footer">
+              <div class="card-profile">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXj1sLAKpscYcXz74xH48-WbhO77bkRyE1PQ&s" alt="Ignacio" />
+                <div class="card-profile-info">
+                  <span class="card-profile-name">Ignacio</span>
+                  <span class="card-profile-role">Subgerente de Planeamiento Financiero</span>
+                </div>
+              </div>
+              <button class="card-button" data-person="ignacio">Leer más</button>
+            </div>
+          </div>
         </div>
+
+        <!-- Tarjeta 3: Camila -->
+        <div class="card swiper-slide">
+          <div class="card-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZFAs3JMgFku7iPhd05M0g0u_7u8awSeS5BQ&s" alt="Camila" />
+            <div class="card-tag">Marketing Digital</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">La voz detrás de la marca digital</h3>
+            <p class="card-text">En 9 años creció de practicante a Jefa de Marketing Digital, duplicando usuarios de la app mediante estrategia en redes y UX.</p>
+            <div class="card-footer">
+              <div class="card-profile">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZFAs3JMgFku7iPhd05M0g0u_7u8awSeS5BQ&s" alt="Camila" />
+                <div class="card-profile-info">
+                  <span class="card-profile-name">Camila</span>
+                  <span class="card-profile-role">Jefa de Marketing Digital</span>
+                </div>
+              </div>
+              <button class="card-button" data-person="camila">Leer más</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 4: Ricardo -->
+        <div class="card swiper-slide">
+          <div class="card-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ7XtJxKCHmUAwHISP40Ox3Cf01LBtx-R1fw&s" alt="Ricardo" />
+            <div class="card-tag">Operaciones</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Optimizando el motor del Retail</h3>
+            <p class="card-text">En 11 años ascendió de asistente a Gerente de Procesos Operativos, optimizando logística con metodologías Lean.</p>
+            <div class="card-footer">
+              <div class="card-profile">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ7XtJxKCHmUAwHISP40Ox3Cf01LBtx-R1fw&s" alt="Ricardo" />
+                <div class="card-profile-info">
+                  <span class="card-profile-name">Ricardo</span>
+                  <span class="card-profile-role">Gerente de Procesos Operativos</span>
+                </div>
+              </div>
+              <button class="card-button" data-person="ricardo">Leer más</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 5: Elena -->
+        <div class="card swiper-slide">
+          <div class="card-image">
+            <img src="https://imgmedia.larepublica.pe/1000x590/larepublica/original/2022/10/14/6349b95dd793850877367596.webp" alt="Elena" />
+            <div class="card-tag">Analytics & IA</div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Datos que predicen el futuro</h3>
+            <p class="card-text">En 7 años pasó de practicante a Líder de Analytics, revolucionando decisiones con modelos predictivos en SQL y Python.</p>
+            <div class="card-footer">
+              <div class="card-profile">
+                <img src="https://imgmedia.larepublica.pe/1000x590/larepublica/original/2022/10/14/6349b95dd793850877367596.webp" alt="Elena" />
+                <div class="card-profile-info">
+                  <span class="card-profile-name">Elena</span>
+                  <span class="card-profile-role">Líder de Analytics</span>
+                </div>
+              </div>
+              <button class="card-button" data-person="elena">Leer más</button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <br><br>
-      <div class="boton">
-        <button class="btn-699" onclick="btns()">view more</button>
-    </div>
-        
-    </div>
-</section>
-    <button class="chatbot-toggler">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-        </svg>
-    </button>
-    <div class="chatbot">
-        <header class="header">
-            <h2>Chatbot</h2>
-            <svg class="close-btn" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-            </svg>
-        </header>
-        <ul class="chatbox">
-            <li class="chat incoming">
-                <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hola, ¿en que puedo ayudarte? <br> Me podrias informar..</p>
-            </li>
-        </ul>
-        <div class="chat-input">
-            <textarea placeholder="Enviar mensage" required></textarea>
-            <span id="send-btn" class="material-symbols-outlined">send</span>
-        </div>
+  </div>
+</main>
+
+<!-- ===================== MODAL ===================== -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+        <!-- Paginación -->
+
+    
+      <div class="marcas-container">
+    <h2>De nuestras marcas a tu hogar</h2>
+    <p class="subtitulo">Encuentra nuestras marcas en los distintos países de la región</p>
+
+    <div class="paises">
+      <div class="pais activo">🇵🇪 Perú</div>
     </div>
 
+    <div class="marcas">
+      <div class="marca" data-marca="metro">
+        <img src="../IMG/Logo Metro (2).png" alt="Metro">
+        <div class="tooltip">Supermercado accesible</div>
+      </div>
+
+      <div class="marca" data-marca="wong">
+        <img src="../IMG/Logo Wong (1).png" alt="Wong">
+        <div class="tooltip">Experiencia premium</div>
+      </div>
+    </div><br><br><br>
+    <h1>Crear experiencias memorables para nutrir los hogares de nuestra comunidad </h1>
+  </div>​​
+<!-- MODAL -->
+<div id="modalMarcas" class="modal">
+  <div class="modal-content">
+    <span id="closeMarcas">&times;</span>
+    <div id="modalBodyMarcas"></div>
+  </div>
+</div>
+
+
+      <!-- MASCOTA -->
+  <div class="mascota-container">
+    <img src="../IMG/Perry_pose_v001_B_0006.png" 
+         class="mascota" 
+         id="mascota"
+         alt="Perry">
+    
+    <div id="burbuja" class="burbuja">
+      <p id="textoBurbuja">👋 ¡Hola! Soy Perry, tu guía en Cencosud.<br>¿En qué te ayudo hoy?</p>
+      <div class="opciones">
+        <button onclick="responder('ruta')">📈 Mi Ruta de Crecimiento</button>
+        <button onclick="responder('historias')">🌟 Historias Reales</button>
+        <button onclick="responder('skills')">🧠 Habilidades que buscamos</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- FOOTER-->
+     <footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- LOGO + SOCIAL -->
+    <div class="footer-col logo-col">
+      <img src="../IMG/logoCencosud.png" class="logo-footer">
+
+      <button class="btn-denuncia">📢 Canal de Denuncias</button>
+
+      <div class="social">
+        <span>in</span>
+      </div>
+    </div>
+
+    <!-- COLUMNA 1 -->
+    <div class="footer-col">
+      <h3>Conócenos</h3>
+      <ul>
+        <li><a href="#">Nuestra Empresa</a></li>
+        <li><a href="#">Nuestra Historia</a></li>
+        <li><a href="#">Unidades de Negocio</a></li>
+        <li><a href="#">Proveedores</a></li>
+        <li><a href="#">Gobierno Corporativo</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 2 -->
+    <div class="footer-col">
+      <h3>Inversionistas</h3>
+      <ul>
+        <li><a href="#">Información Financiera</a></li>
+        <li><a href="#">Comunicados / Noticias</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Resumen País</a></li>
+        <li><a href="#">Información de la Acción</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 3 -->
+    <div class="footer-col">
+      <h3>Sostenibilidad</h3>
+      <ul>
+        <li><a href="#">Pilares ASG</a></li>
+        <li><a href="#">Indicadores</a></li>
+        <li><a href="#">Compromisos</a></li>
+        <li><a href="#">Acciones</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 4 -->
+    <div class="footer-col">
+      <h3>Equipo Cencosud</h3>
+      <ul>
+        <li><a href="#">#Acciones</a></li>
+        <li><a href="#">#Beneficios</a></li>
+        <li><a href="#">#TrabajaConNosotros</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 5 -->
+    <div class="footer-col">
+      <h3>Centro de Medios</h3>
+      <ul>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Suscríbete</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</footer>
+<script>
+    /* DATA MARCAS */
+const data = {
+  metro: {
+    nombre: "Metro",
+    info: "Supermercado accesible enfocado en ahorro diario.",
+    extra: "Ideal para compras rápidas y familiares."
+  },
+  wong: {
+    nombre: "Wong",
+    info: "Supermercado premium con alta calidad.",
+    extra: "Experiencia diferenciada y servicio top."
+  }
+};
+
+const modal = document.getElementById("modalMarcas");
+const modalBody = document.getElementById("modalBodyMarcas");
+const closeBtn = document.getElementById("closeMarcas");
+
+document.querySelectorAll(".marca").forEach(marca => {
+  marca.addEventListener("click", function(e) {
+
+    // Ripple
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    ripple.style.left = (e.offsetX - 75) + "px";
+    ripple.style.top = (e.offsetY - 75) + "px";
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+
+    // Info
+    const key = this.dataset.marca;
+    const info = data[key];
+
+    modalBody.innerHTML = `
+      <h2>${info.nombre}</h2>
+      <p>${info.info}</p>
+      <p><b>💡</b> ${info.extra}</p>
+    `;
+
+    modal.classList.add("active");
+  });
+});
+
+// cerrar
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+// cerrar afuera
+modal.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+  }
+});
+
+
+    // Mascota y Burbuja
+    const mascota = document.getElementById("mascota");
+    const burbuja = document.getElementById("burbuja");
+    const textoBurbuja = document.getElementById("textoBurbuja");
+
+    const mensajes = {
+      inicio: "👋 ¡Hola! Soy Perry, tu guía en Cencosud. ¿En qué te ayudo hoy?",
+      ruta: "📈 Puedes comenzar en tienda y crecer hasta posiciones en Tecnología, Marketing, Finanzas o Liderazgo regional.",
+      historias: "🌟 Muchas personas empezaron como tú y hoy lideran equipos o tiendas en Cencosud.",
+      skills: "🧠 Buscamos: Orientación al cliente, Trabajo en equipo, Comunicación efectiva y Actitud de aprendizaje."
+    };
+
+    mascota.addEventListener("click", () => {
+      burbuja.classList.toggle("show");
+      if (burbuja.classList.contains("show")) {
+        textoBurbuja.textContent = mensajes.inicio;
+      }
+    });
+
+    window.responder = function(tipo) {
+      textoBurbuja.style.transition = "all 0.3s";
+      textoBurbuja.style.opacity = "0";
+      
+      setTimeout(() => {
+        textoBurbuja.textContent = mensajes[tipo];
+        textoBurbuja.style.opacity = "1";
+      }, 200);
+    };
+
+    // Mensaje automático
+    setTimeout(() => {
+      if (!burbuja.classList.contains("show")) {
+        burbuja.classList.add("show");
+        textoBurbuja.textContent = "👀 ¡Haz clic en mí para descubrir tu futuro en Cencosud!";
+      }
+    }, 2800);
+
+    // Ripple animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes rippleAnim {
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+
+
+
+    const stories = {
+  valeria: `
+    <h2>Valeria - De la atención al cliente a la Estrategia Comercial</h2>
+    <ul>
+      <li><strong>2016:</strong> Ingresa como Cajera en un Wong de Miraflores mientras estudiaba Administración.</li>
+      <li><strong>2018:</strong> Tras graduarse, postula a una vacante interna y salta a la oficina central como Practicante de Compras.</li>
+      <li><strong>2021:</strong> Asciende a Analista de Categoría. Lidera negociaciones con proveedores locales para Fiestas Patrias, logrando un ahorro del 10% en costos.</li>
+      <li><strong>2025:</strong> Hoy es Category Manager Regional, decidiendo qué productos verán miles de clientes en las góndolas de todo el país.</li>
+    </ul>
+    <p><strong>Perfil de Éxito:</strong> Analítica, negociadora y con visión de negocio.<br>
+    <strong>Habilidades clave:</strong> Gestión de proveedores, análisis de KPIs de ventas y Excel avanzado.</p>
+  `,
+
+  ignacio: `
+    <h2>Ignacio - El guardián de la rentabilidad</h2>
+    <ul>
+      <li><strong>2015:</strong> Inicia como Asistente Contable junior procesando facturas de servicios básicos.</li>
+      <li><strong>2019:</strong> Detecta un error sistemático en cobros de energía y recupera un saldo importante. Es promovido a Analista de Tesorería.</li>
+      <li><strong>2022:</strong> Lidera el proyecto "Cero Papel", digitalizando el 100% de los pagos a proveedores.</li>
+      <li><strong>2026:</strong> Actualmente es Subgerente de Planeamiento Financiero, proyectando inversiones millonarias para los próximos 5 años.</li>
+    </ul>
+    <p><strong>Perfil de Éxito:</strong> Metódico, ético y orientado a la eficiencia.<br>
+    <strong>Habilidades clave:</strong> Modelado financiero, auditoría y control de presupuestos.</p>
+  `,
+
+  camila: `
+    <h2>Camila - La voz detrás de la marca digital</h2>
+    <ul>
+      <li><strong>2017:</strong> Entra como Practicante de Marketing diseñando encartes físicos.</li>
+      <li><strong>2019:</strong> Propone la primera estrategia de contenidos orgánicos en redes usando colaboradores como influencers.</li>
+      <li><strong>2022:</strong> Gestiona el relanzamiento de la App de Cencosud, duplicando usuarios activos en un año.</li>
+      <li><strong>2026:</strong> Hoy es Jefa de Marketing Digital de Wong y Metro a nivel nacional.</li>
+    </ul>
+    <p><strong>Perfil de Éxito:</strong> Creativa, disruptiva y con gran capacidad de comunicación.<br>
+    <strong>Habilidades clave:</strong> Estrategia de Social Media, SEO/SEM y análisis UX.</p>
+  `,
+
+  ricardo: `
+    <h2>Ricardo - Optimizando el motor del Retail</h2>
+    <ul>
+      <li><strong>2014:</strong> Comienza como Asistente de Procesos midiendo tiempos de carga en el Centro de Distribución.</li>
+      <li><strong>2018:</strong> Diseña nuevo flujo de mercadería que reduce en 20 minutos el tiempo de descarga de camiones.</li>
+      <li><strong>2021:</strong> Implementa sistema de picking rápido para e-commerce.</li>
+      <li><strong>2025:</strong> Actualmente es Gerente de Procesos Operativos.</li>
+    </ul>
+    <p><strong>Perfil de Éxito:</strong> Resolutivo, pragmático y con liderazgo técnico.<br>
+    <strong>Habilidades clave:</strong> Metodologías Lean, logística de gran escala y gestión de proyectos.</p>
+  `,
+
+  elena: `
+    <h2>Elena - Datos que predicen el futuro</h2>
+    <ul>
+      <li><strong>2019:</strong> Se incorpora como Practicante de Business Intelligence limpiando bases de datos.</li>
+      <li><strong>2021:</strong> Crea modelo predictivo de fruta fresca según el clima.</li>
+      <li><strong>2023:</strong> Su modelo se vuelve herramienta estándar para la gerencia comercial.</li>
+      <li><strong>2026:</strong> Hoy es Líder de Analytics, transformando millones de transacciones en estrategias de crecimiento.</li>
+    </ul>
+    <p><strong>Perfil de Éxito:</strong> Lógica, curiosa y con mentalidad científica.<br>
+    <strong>Habilidades clave:</strong> SQL, Python, estadística y Power BI.</p>
+  `
+};
+
+document.querySelectorAll('.card-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const person = button.getAttribute('data-person');
+    document.getElementById('modal-body').innerHTML = stories[person];
+    document.getElementById('modal').style.display = 'flex';
+  });
+});
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+  document.getElementById('modal').style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === document.getElementById('modal')) {
+    document.getElementById('modal').style.display = 'none';
+  }
+});
+  </script>
+    <!-- Script de enlace de Swiper -->
+    <script src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js " > </script>
+    <script src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js " > </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../JS/script.js"></script>
     <script src="../JS/script2.js"></script>
+    <script src="../JS/menu.js"></script>
 </body>
 </html>

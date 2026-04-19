@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiero Crecer en Cencosud</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link rel="stylesheet" href="../CSS/tuRuta.css">
+</head>
+<body>
+
+<header class="head">
+    <div class="contenedor">
+        <div class="logo">
+            <span><img src="../IMG/logoCencosud.png" alt="Logo" width="190px"></span>
+        </div>
+
+        <nav class="menu-opciones" id="nav-menu">
+            <ul>
+                <li><a href="index.html">Explorar</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="Programas.html">Programas</a></li>
+                <li><a href="Programas.html">Capacitación</a></li>
+            </ul>
+        </nav>
+
+        <div class="controles-usuario">
+            <ion-icon id="btn-menu" name="menu-outline" onclick="toggleMenu()"></ion-icon>
+        </div>
+    </div>
+</header>
+
+<main class="main-content px-4">
+    <div id="loginContainer" class="glass-card">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Inicia Sesión</h2>
+        <input class="w-full p-4 border-2 rounded-xl mb-4 outline-none transition-all" id="loginEmail" placeholder="Correo corporativo">
+        <input class="w-full p-4 border-2 rounded-xl mb-6 outline-none transition-all" id="loginPass" type="password" placeholder="Contraseña">
+        <button class="w-full bg-[#045996] text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition-colors" onclick="iniciarSesion()">Ingresar</button>
+        
+        <p class="mt-6 text-gray-500 text-sm">
+            ¿No tienes cuenta? 
+            <a href="#" class="text-orange-500 font-bold hover:underline" onclick="toggleAuth('register')">Regístrate aquí</a>
+        </p>
+    </div>
+
+    <div id="registerContainer" class="glass-card hidden">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Crea tu cuenta</h2>
+        <p class="text-gray-500 mb-6 text-sm">Únete a la red de talento Cencosud</p>
+        
+        <input class="w-full p-4 border-2 rounded-xl mb-4 outline-none" id="regName" placeholder="Nombre completo">
+        <input class="w-full p-4 border-2 rounded-xl mb-4 outline-none" id="regEmail" placeholder="Correo corporativo">
+        <input class="w-full p-4 border-2 rounded-xl mb-6 outline-none" id="regPass" type="password" placeholder="Crea una contraseña">
+        
+        <button class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold hover:bg-orange-600 transition-colors" onclick="registrarUsuario()">Registrarse</button>
+        
+        <p class="mt-6 text-gray-500 text-sm">
+            ¿Ya tienes cuenta? 
+            <a href="#" class="text-blue-900 font-bold hover:underline" onclick="toggleAuth('login')">Inicia sesión</a>
+        </p>
+    </div>
+
+    <div id="dashboard" class="w-full max-w-2xl hidden">
+        <div class="bg-white p-6 rounded-2xl shadow-md mb-8 flex justify-between items-center border-l-8 border-orange-500">
+            <div>
+                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Perfil Recomendado</p>
+                <h3 id="perfilUsuario" class="text-2xl font-bold text-blue-900">Sin definir</h3>
+            </div>
+            <button class="text-red-500 font-bold text-sm hover:underline" onclick="logout()">Salir</button>
+        </div>
+
+        <div id="testArea" class="bg-white p-8 rounded-3xl shadow-sm border text-center">
+            <div id="introTest">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">¿Hacia dónde quieres ir hoy?</h2>
+                <p class="text-gray-500 mb-6">Realiza nuestro test de carrera para descubrir nuevas oportunidades dentro de Cencosud.</p>
+                <button class="bg-orange-500 text-white px-10 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition-transform" onclick="mostrarQuiz()">Empezar Test 🚀</button>
+            </div>
+
+            <div id="quiz" class="hidden text-left">
+                <div class="mb-6">
+                    <span id="paso" class="text-orange-500 font-bold text-sm uppercase">Pregunta 1 de 6</span>
+                    <h3 id="preguntaTexto" class="text-xl font-bold text-gray-800 mt-2"></h3>
+                </div>
+                <div id="opcionesContenedor"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Alternar entre Login y Registro
+    function toggleAuth(type) {
+        const login = document.getElementById("loginContainer");
+        const register = document.getElementById("registerContainer");
+        
+        if(type === 'register') {
+            login.classList.add("hidden");
+            register.classList.remove("hidden");
+        } else {
+            register.classList.add("hidden");
+            login.classList.remove("hidden");
+        }
+    }
+
+    function registrarUsuario() {
+        const nombre = document.getElementById("regName").value;
+        const email = document.getElementById("regEmail").value;
+        if(nombre === "" || email === "") return alert("Por favor completa los datos");
+        
+        alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+        toggleAuth('login');
+    }
+
+    function toggleMenu() {
+        document.getElementById('nav-menu').classList.toggle('mostrar');
+    }
+
+    const preguntas = [
+        { texto: "1. ¿Qué tipo de tareas te gustan más?", opciones: [
+            { texto: "Analizar datos", perfil: "Datos & Analytics" },
+            { texto: "Atender clientes", perfil: "Marketing & Comercial" },
+            { texto: "Programar", perfil: "Tecnología & Digital" },
+            { texto: "Ayudar personas", perfil: "RRHH & Personas" }
+        ]},
+        { texto: "2. ¿En qué ambiente te sientes cómodo?", opciones: [
+            { texto: "Analítico", perfil: "Datos & Analytics" },
+            { texto: "Creativo", perfil: "Marketing & Comercial" },
+            { texto: "Tecnológico", perfil: "Tecnología & Digital" },
+            { texto: "Humano", perfil: "RRHH & Personas" }
+        ]},
+        { texto: "3. ¿Qué te motiva más?", opciones: [
+            { texto: "Resultados", perfil: "Datos & Analytics" },
+            { texto: "Experiencias", perfil: "Marketing & Comercial" },
+            { texto: "Tecnología", perfil: "Tecnología & Digital" },
+            { texto: "Personas", perfil: "RRHH & Personas" }
+        ]},
+        { texto: "4. ¿Qué quieres aprender?", opciones: [
+            { texto: "Power BI", perfil: "Datos & Analytics" },
+            { texto: "Marketing", perfil: "Marketing & Comercial" },
+            { texto: "Programación", perfil: "Tecnología & Digital" },
+            { texto: "Liderazgo", perfil: "RRHH & Personas" }
+        ]},
+        { texto: "5. ¿Qué rol quieres?", opciones: [
+            { texto: "Analista", perfil: "Datos & Analytics" },
+            { texto: "Ventas", perfil: "Marketing & Comercial" },
+            { texto: "Developer", perfil: "Tecnología & Digital" },
+            { texto: "RRHH", perfil: "RRHH & Personas" }
+        ]},
+        { texto: "6. ¿Cómo aportas?", opciones: [
+            { texto: "Datos", perfil: "Datos & Analytics" },
+            { texto: "Ideas", perfil: "Marketing & Comercial" },
+            { texto: "Soluciones", perfil: "Tecnología & Digital" },
+            { texto: "Apoyo", perfil: "RRHH & Personas" }
+        ]}
+    ];
+
+    let indicePregunta = 0;
+    let perfilTemporal = "";
+
+    function iniciarSesion() {
+        const email = document.getElementById("loginEmail").value;
+        if(email === "") return alert("Ingresa un correo");
+        
+        document.getElementById("loginContainer").classList.add("hidden");
+        document.getElementById("registerContainer").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+        
+        localStorage.setItem("login", "true");
+    }
+
+    function mostrarQuiz() {
+        document.getElementById("introTest").classList.add("hidden");
+        document.getElementById("quiz").classList.remove("hidden");
+        cargarPregunta();
+    }
+
+    function cargarPregunta() {
+        const p = preguntas[indicePregunta];
+        document.getElementById("preguntaTexto").textContent = p.texto;
+        document.getElementById("paso").textContent = `Pregunta ${indicePregunta + 1} de ${preguntas.length}`;
+        
+        const contenedor = document.getElementById("opcionesContenedor");
+        contenedor.innerHTML = "";
+        
+        p.opciones.forEach(o => {
+            const div = document.createElement("div");
+            div.className = "quiz-option";
+            div.textContent = o.texto;
+            div.onclick = () => procesarRespuesta(o.perfil);
+            contenedor.appendChild(div);
+        });
+    }
+
+    function procesarRespuesta(perfil) {
+        perfilTemporal = perfil; 
+        indicePregunta++;
+        
+        if(indicePregunta < preguntas.length) {
+            cargarPregunta();
+        } else {
+            finalizarTest();
+        }
+    }
+
+    function finalizarTest() {
+        document.getElementById("quiz").innerHTML = `
+            <div class="text-center py-6">
+                <span class="material-symbols-outlined text-6xl text-green-500 mb-4">check_circle</span>
+                <h3 class="text-2xl font-bold mb-2 text-gray-800">¡Test Completado!</h3>
+                <p class="text-gray-500">Hemos actualizado tu perfil sugerido.</p>
+                <button class="mt-6 bg-blue-900 text-white px-6 py-2 rounded-lg" onclick="location.reload()">Finalizar</button>
+            </div>
+        `;
+        document.getElementById("perfilUsuario").textContent = perfilTemporal;
+        localStorage.setItem("perfil", perfilTemporal);
+    }
+
+    function logout() {
+        localStorage.clear();
+        location.reload();
+    }
+
+    window.onload = () => {
+        if(localStorage.getItem("login") === "true") {
+            iniciarSesion();
+            const guardado = localStorage.getItem("perfil");
+            if(guardado) document.getElementById("perfilUsuario").textContent = guardado;
+        }
+    }
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

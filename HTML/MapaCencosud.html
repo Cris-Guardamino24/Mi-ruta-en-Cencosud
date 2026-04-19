@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interactivo Cencosud - Simulador de Carrera</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="../CSS/mapa.css">
+  <style>
+    :root {
+      --primary: #0074FF;
+      --accent: rgb(237, 135, 60);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', system-ui, sans-serif; }
+
+    body {
+      background: linear-gradient(135deg, #14519E, #4fa3ff);
+      min-height: 100vh;
+      color: #333;
+    }
+
+
+    .container {
+      max-width: 1200px;
+      margin: 100px auto 40px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    h1 { font-size: 2.8rem; margin-bottom: 10px; }
+    .subtitle { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.95; }
+
+    .filtros {
+      margin-bottom: 30px;
+    }
+
+    .filtros button {
+      padding: 12px 24px;
+      margin: 6px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #333;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filtros button.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+    /* Tablet */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .area-title {
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .puesto {
+      background: linear-gradient(135deg, #14519E, #4fa3ff);
+      padding: 14px;
+      border-radius: 12px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .puesto:hover {
+      background: #eef5ff;
+      transform: scale(1.03);
+    }
+
+    /* Mascota */
+    .mascota-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 2000;
+    }
+
+    .mascota {
+      width: 120px;
+      cursor: pointer;
+      animation: floatAdvanced 4s ease-in-out infinite;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+    }
+
+    @keyframes floatAdvanced {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-25px) rotate(6deg); }
+    }
+
+    .burbuja {
+      position: absolute;
+      bottom: 145px;
+      right: 20px;
+      width: 290px;
+      background: white;
+      padding: 22px;
+      border-radius: 22px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: scale(0.6) translateY(30px);
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .burbuja.show {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .burbuja::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: 35px;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 14px solid white;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      backdrop-filter: blur(6px);
+    }
+
+    .modal.show { display: flex; }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 460px;
+      width: 90%;
+      position: relative;
+    }
+
+    #closeModal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+      <header class="head">
+        <div class="contenedor">
+            <div class="logo">
+                <span><img src="../IMG/logoCencosud.png" alt="" width="190px"></span>
+            </div>
+
+            <div class="menu-opciones">
+                <ul>
+                    <li>
+                        <a id="home" href="index.html">Explorar</a>
+                    </li>
+                    <li>
+                        <a href="perfil.html">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="Programas.html">Programas</a>
+                    </li>
+                    <li>
+                        <a href="Programas.html">Capacitación</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="controles-usuario">
+                <button id="btn-sign-up" onclick = " window.location.href = 'tuRuta.html'">Quiero crecer</button>
+                <ion-icon id="btn-menu" name="menu"></ion-icon>
+            </div>
+        </div>
+        
+    </header>
+  <div class="container">
+    <h1>🚀 Simulador de Carrera</h1>
+    <p class="subtitle">Selecciona tu puesto actual y descubre tu siguiente paso en Cencosud</p>
+
+    <div id="filtros" class="filtros"></div>
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <!-- MASCOTA -->
+  <div class="mascota-container">
+    <img src="../IMG/Perry_pose_v001_B_0006.png" class="mascota" id="mascota" alt="Perry">
+    <div id="burbuja" class="burbuja">
+      <p id="textoBurbuja">👋 ¡Hola! Soy Perry, tu guía en Cencosud.<br>¿En qué te ayudo hoy?</p>
+      <div class="opciones">
+        <button onclick="responder('ruta')">📈 Mi Ruta de Crecimiento</button>
+        <button onclick="responder('historias')">🌟 Historias Reales</button>
+        <button onclick="responder('skills')">🧠 Habilidades que buscamos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+       <footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- LOGO + SOCIAL -->
+    <div class="footer-col logo-col">
+      <img src="../IMG/logoCencosud.png" class="logo-footer">
+
+      <button class="btn-denuncia">📢 Canal de Denuncias</button>
+
+      <div class="social">
+        <span>in</span>
+      </div>
+    </div>
+
+    <!-- COLUMNA 1 -->
+    <div class="footer-col">
+      <h3>Conócenos</h3>
+      <ul>
+        <li><a href="#">Nuestra Empresa</a></li>
+        <li><a href="#">Nuestra Historia</a></li>
+        <li><a href="#">Unidades de Negocio</a></li>
+        <li><a href="#">Proveedores</a></li>
+        <li><a href="#">Gobierno Corporativo</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 2 -->
+    <div class="footer-col">
+      <h3>Inversionistas</h3>
+      <ul>
+        <li><a href="#">Información Financiera</a></li>
+        <li><a href="#">Comunicados / Noticias</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Resumen País</a></li>
+        <li><a href="#">Información de la Acción</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 3 -->
+    <div class="footer-col">
+      <h3>Sostenibilidad</h3>
+      <ul>
+        <li><a href="#">Pilares ASG</a></li>
+        <li><a href="#">Indicadores</a></li>
+        <li><a href="#">Compromisos</a></li>
+        <li><a href="#">Acciones</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 4 -->
+    <div class="footer-col">
+      <h3>Equipo Cencosud</h3>
+      <ul>
+        <li><a href="#">#Acciones</a></li>
+        <li><a href="#">#Beneficios</a></li>
+        <li><a href="#">#TrabajaConNosotros</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMNA 5 -->
+    <div class="footer-col">
+      <h3>Centro de Medios</h3>
+      <ul>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Suscríbete</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // ==================== DATOS ACTUALIZADOS ====================
+    const areas = [
+      {
+        id: 1,
+        nombre: "Datos & Analytics",
+        color: "#0074FF",
+        puestos: [
+          { id: "C001", nombre: "Practicante Analytics", nivel: "Practicante", meses: "6", skillsTec: "Excel, SQL Básico", skillsSoft: "Curiosidad, Comunicación", vacante: true },
+          { id: "C002", nombre: "Analista Jr de Datos", nivel: "Junior", meses: "24", skillsTec: "SQL, Python, Power BI", skillsSoft: "Comunicación, Documentación", vacante: true },
+          { id: "C003", nombre: "Analista Sr de Datos", nivel: "Senior", meses: "30", skillsTec: "Python Avanzado, ML, Cloud", skillsSoft: "Liderazgo técnico", vacante: false }
+        ]
+      },
+      {
+        id: 2,
+        nombre: "Marketing & Comercial",
+        color: "#FF7A00",
+        puestos: [
+          { id: "C006", nombre: "Asistente de Marketing", nivel: "Junior", meses: "18", skillsTec: "Redes Sociales, Copywriting", skillsSoft: "Creatividad, Iniciativa", vacante: true },
+          { id: "C007", nombre: "Analista de Marca", nivel: "Senior", meses: "24", skillsTec: "Consumer Insights, A/B Testing", skillsSoft: "Storytelling, Presentación", vacante: true }
+        ]
+      },
+      {
+        id: 3,
+        nombre: "Tecnologia & Digital",
+        color: "#00A86B",
+        puestos: [
+          { 
+            id: "C010", 
+            nombre: "Dev Jr Frontend", 
+            nivel: "Junior", 
+            meses: "18", 
+            skillsTec: "HTML, CSS, JavaScript, React", 
+            skillsSoft: "Trabajo en Equipo, Curiosidad", 
+            vacante: true,
+            prereq: "Sin experiencia o Bootcamp"
+          },
+          { 
+            id: "C011", 
+            nombre: "Dev Sr Full Stack", 
+            nivel: "Senior", 
+            meses: "30", 
+            skillsTec: "TypeScript, Node, Cloud", 
+            skillsSoft: "Autonomía, Documentación", 
+            vacante: true,
+            prereq: "C010 Dev Jr Frontend"
+          },
+          { 
+            id: "C012", 
+            nombre: "Tech Lead", 
+            nivel: "Lead", 
+            meses: "36", 
+            skillsTec: "Arquitectura, DevOps", 
+            skillsSoft: "Liderazgo Técnico, Comunicación", 
+            vacante: false,
+            prereq: "C011 Dev Sr Full Stack"
+          },
+          { 
+            id: "C013", 
+            nombre: "Product Lead", 
+            nivel: "Lead", 
+            meses: "36", 
+            skillsTec: "Roadmap, OKRs, Métricas", 
+            skillsSoft: "Product Thinking, Negociación", 
+            vacante: true,
+            prereq: "C011 o C012"
+          }
+        ]
+      },
+      {
+        id: 4,
+        nombre: "RRHH & Personas",
+        color: "#9C27B0",
+        puestos: [
+          { 
+            id: "C014", 
+            nombre: "Analista RRHH", 
+            nivel: "Junior", 
+            meses: "24", 
+            skillsTec: "Excel, ATS, Reportes RRHH", 
+            skillsSoft: "Empatía, Comunicación", 
+            vacante: true,
+            prereq: "Sin experiencia o Practicante"
+          },
+          { 
+            id: "C015", 
+            nombre: "Business Partner RRHH", 
+            nivel: "Senior", 
+            meses: "36", 
+            skillsTec: "People Analytics, HRBP", 
+            skillsSoft: "Influencia, Visión de Negocio", 
+            vacante: false,
+            prereq: "C014 Analista RRHH"
+          }
+        ]
+      }
+    ];
+
+    // ==================== RENDER FILTROS ====================
+    const filtrosDiv = document.getElementById('filtros');
+    areas.forEach(area => {
+      const btn = document.createElement('button');
+      btn.textContent = area.nombre;
+      btn.onclick = () => filtrarPorArea(area.id);
+      filtrosDiv.appendChild(btn);
+    });
+
+    // ==================== RENDER GRID ====================
+    function renderGrid(filteredAreas = areas) {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+
+      filteredAreas.forEach(area => {
+        const divArea = document.createElement('div');
+        divArea.className = 'card';
+        divArea.innerHTML = `
+          <div class="area-title" style="background: ${area.color};">${area.nombre}</div>
+          <div class="puestos"></div>
+        `;
+
+        const puestosContainer = divArea.querySelector('.puestos');
+        area.puestos.forEach(puesto => {
+          const puestoEl = document.createElement('div');
+          puestoEl.className = 'puesto';
+          puestoEl.innerHTML = `
+            <strong>${puesto.id}</strong> — ${puesto.nombre}<br>
+            <small>${puesto.nivel} • ${puesto.meses} meses</small>
+          `;
+          puestoEl.onclick = () => mostrarModal(puesto, area.nombre);
+          puestosContainer.appendChild(puestoEl);
+        });
+
+        grid.appendChild(divArea);
+      });
+    }
+
+    // ==================== FILTRAR ====================
+    function filtrarPorArea(id) {
+      document.querySelectorAll('#filtros button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === areas.find(a => a.id === id).nombre);
+      });
+      const filtradas = areas.filter(a => a.id === id);
+      renderGrid(filtradas);
+    }
+
+    // ==================== MODAL ====================
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.getElementById('closeModal');
+
+    function mostrarModal(puesto, areaNombre) {
+      modalBody.innerHTML = `
+        <h2 style="color: var(--primary); margin-bottom: 15px;">${puesto.nombre}</h2>
+        <p><strong>Área:</strong> ${areaNombre}</p>
+        <p><strong>Nivel:</strong> ${puesto.nivel} • ${puesto.meses} meses estimados</p>
+        ${puesto.prereq ? `<p><strong>Requisito previo:</strong> ${puesto.prereq}</p>` : ''}
+        <hr style="margin: 18px 0;">
+        <p><strong>🛠️ Habilidades Técnicas:</strong> ${puesto.skillsTec}</p>
+        <p><strong>🤝 Habilidades Blandas:</strong> ${puesto.skillsSoft}</p>
+        <p style="margin-top: 18px; font-weight: bold; color: ${puesto.vacante ? '#00C853' : '#FF5252'};">
+          ${puesto.vacante ? '✅ Vacante Activa' : '🔴 Vacante Cerrada'}
+        </p>
+      `;
+      modal.classList.add('show');
+    }
+
+    closeModal.onclick = () => modal.classList.remove('show');
+    modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('show'); };
+
+    // ==================== MASCOTA ====================
+    const mascota = document.getElementById("mascota");
+    const burbuja = document.getElementById("burbuja");
+    const textoBurbuja = document.getElementById("textoBurbuja");
+
+    const mensajes = {
+      inicio: "👋 ¡Hola! Soy Perry, tu guía en Cencosud. ¿En qué te ayudo hoy?",
+      ruta: "📈 Puedes comenzar en tienda y crecer hasta posiciones en Tecnología, Marketing, Finanzas o Liderazgo regional.",
+      historias: "🌟 Muchas personas empezaron como tú y hoy lideran equipos o tiendas en Cencosud.",
+      skills: "🧠 Buscamos: Orientación al cliente, Trabajo en equipo, Comunicación efectiva y Actitud de aprendizaje."
+    };
+
+    mascota.addEventListener("click", () => {
+      burbuja.classList.toggle("show");
+      if (burbuja.classList.contains("show")) textoBurbuja.textContent = mensajes.inicio;
+    });
+
+    window.responder = function(tipo) {
+      textoBurbuja.style.opacity = "0";
+      setTimeout(() => {
+        textoBurbuja.textContent = mensajes[tipo];
+        textoBurbuja.style.opacity = "1";
+      }, 200);
+    };
+
+    setTimeout(() => {
+      if (!burbuja.classList.contains("show")) {
+        burbuja.classList.add("show");
+        textoBurbuja.textContent = "👀 ¡Explora los nuevos puestos en Tecnología y RRHH!";
+      }
+    }, 2800);
+
+    // ==================== INICIO ====================
+    renderGrid();
+  </script>
+  <script src="../JS/menu.js"></script>
+</body>
+</html>
