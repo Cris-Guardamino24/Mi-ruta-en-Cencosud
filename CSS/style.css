@@ -139,6 +139,7 @@ main .seccion-1 .texto p{
     color: #fff;
 }
 
+
 main .seccion-1 .texto .precio-nuevo{
     font-size: 25px;
     color: var(--color);
@@ -179,6 +180,7 @@ main .seccion-1 .texto .precio-nuevo{
 
 .historias h1{
   font-size: 50px;
+  text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 

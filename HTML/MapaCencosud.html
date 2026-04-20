@@ -143,10 +143,17 @@
       transform: scale(0.6) translateY(30px);
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
-
+    #textoBurbuja {
+      color: black;
+    }
     .burbuja.show {
       opacity: 1;
       transform: scale(1) translateY(0);
+    }
+
+    .burbuja button{
+      border: none;
+      background: none;
     }
 
     .burbuja::after {
@@ -198,33 +205,20 @@
   <!-- HEADER -->
       <header class="head">
         <div class="contenedor">
-            <div class="logo">
-                <span><img src="../IMG/logoCencosud.png" alt="" width="190px"></span>
-            </div>
-
-            <div class="menu-opciones">
+            <div class="logo"><span><img src="../IMG/logoCencosud.png" alt="Cencosud" width="180px"></span></div>
+            <nav class="menu-opciones" id="nav-menu">
                 <ul>
-                    <li>
-                        <a id="home" href="../index.html">Explorar</a>
-                    </li>
-                    <li>
-                        <a href="perfil.html">Perfil</a>
-                    </li>
-                    <li>
-                        <a href="Programas.html">Programas</a>
-                    </li>
-                    <li>
-                        <a href="historia.html">Historia</a>
-                    </li>
-                </ul>
-            </div>
-
+                    <li><a href="../index.html">Explorar</a></li>
+                    <li><a href=".perfil.html">Perfil</a></li>
+                    <li><a href="./Programas.html">Programas</a></li>
+                    <li><a href="./historia.html">Historia</a></li>
+                    <li><button id="btn-sign-up" onclick="window.location.href='tuRuta.html'">Quiero crecer</button></li>
+                    </ul>
+            </nav>
             <div class="controles-usuario">
-                <button id="btn-sign-up" onclick = " window.location.href = 'tuRuta.html'">Quiero crecer</button>
-                <ion-icon id="btn-menu" name="menu"></ion-icon>
+                <ion-icon id="btn-menu" name="menu-outline" onclick="toggleMenu()"></ion-icon>
             </div>
         </div>
-        
     </header>
   <div class="container">
     <h1>🚀 Simulador de Carrera</h1>
@@ -536,6 +530,11 @@
     // ==================== INICIO ====================
     renderGrid();
   </script>
-  <script src="../JS/menu.js"></script>
+  <script>
+function toggleMenu() {
+  const menu = document.getElementById("nav-menu");
+  menu.classList.toggle("mostrar");
+}
+</script>
 </body>
 </html>
