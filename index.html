@@ -3,44 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CENCOSUD</title>
-    <link rel="stylesheet" href="/CSS/style.css">
-    <link rel="stylesheet" href="/CSS/perriPose.css">
+    <title>CENCOSUD - Tu Ruta</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/perriPose.css">
     <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Google fonts Linck-For Icons-->
      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 <body>
     <header class="head">
         <div class="contenedor">
-            <div class="logo">
-                <span><img src="../IMG/logoCencosud.png" alt="" width="190px"></span>
-            </div>
-
-            <div class="menu-opciones">
+            <div class="logo"><span><img src="IMG/logoCencosud.png" alt="Cencosud" width="180px"></span></div>
+            <nav class="menu-opciones" id="nav-menu">
                 <ul>
-                    <li>
-                        <a id="home" href="index.html">Explorar</a>
-                    </li>
-                    <li>
-                        <a href="/HTML/perfil.html">Perfil</a>
-                    </li>
-                    <li>
-                        <a href="/HTML/Programas.html">Programas</a>
-                    </li>
-                    <li>
-                        <a href="/HTML/historia.html">Historia</a>
-                    </li>
-                </ul>
-            </div>
-
+                    <li><a href="index.html">Explorar</a></li>
+                    <li><a href="./HTML/perfil.html">Perfil</a></li>
+                    <li><a href="./HTML/Programas.html">Programas</a></li>
+                    <li><a href="./HTML/historia.html">Historia</a></li>
+                    <li><button id="btn-sign-up" onclick="window.location.href='./HTML/tuRuta.html'">Quiero crecer</button></li>
+                    </ul>
+            </nav>
             <div class="controles-usuario">
-                <button id="btn-sign-up" onclick = " window.location.href = '/HTML/tuRuta.html'">Quiero crecer</button>
-                <ion-icon id="btn-menu" name="menu"></ion-icon>
+                <ion-icon id="btn-menu" name="menu-outline" onclick="toggleMenu()"></ion-icon>
             </div>
         </div>
-        
     </header>
     <main>
         <section class="seccion-1">
@@ -66,7 +55,7 @@
         <!-- Tarjeta 1: Valeria -->
         <div class="card swiper-slide">
           <div class="card-image">
-            <img src="../IMG/valeria.JPG" alt="Valeria" />
+            <img src="IMG/valeria.JPG" alt="Valeria" />
             <div class="card-tag">Estrategia Comercial</div>
           </div>
           <div class="card-content">
@@ -74,7 +63,7 @@
             <p class="card-text">En 9 años pasó de cajera a Category Manager, logrando reducir costos en 10% gracias a su dominio en negociación, análisis de ventas y Excel avanzado.</p>
             <div class="card-footer">
               <div class="card-profile">
-                <img src="../IMG/valeria.JPG" alt="Valeria" />
+                <img src="IMG/valeria.JPG" alt="Valeria" />
                 <div class="card-profile-info">
                   <span class="card-profile-name">Valeria</span>
                   <span class="card-profile-role">Category Manager Regional</span>
@@ -198,12 +187,12 @@
 
     <div class="marcas">
       <div class="marca" data-marca="metro">
-        <img src="../IMG/Logo Metro (2).png" alt="Metro">
+        <img src="IMG/Logo Metro (2).png" alt="Metro">
         <div class="tooltip">Supermercado accesible</div>
       </div>
 
       <div class="marca" data-marca="wong">
-        <img src="../IMG/Logo Wong (1).png" alt="Wong">
+        <img src="IMG/Logo Wong (1).png" alt="Wong">
         <div class="tooltip">Experiencia premium</div>
       </div>
     </div><br><br><br>
@@ -220,7 +209,7 @@
 
       <!-- MASCOTA -->
   <div class="mascota-container">
-    <img src="../IMG/Perry_pose_v001_B_0006.png" 
+    <img src="IMG/Perry_pose_v001_B_0006.png" 
          class="mascota" 
          id="mascota"
          alt="Perry">
@@ -243,7 +232,7 @@
 
     <!-- LOGO + SOCIAL -->
     <div class="footer-col logo-col">
-      <img src="../IMG/logoCencosud.png" class="logo-footer">
+      <img src="IMG/logoCencosud.png" class="logo-footer">
 
       <button class="btn-denuncia">📢 Canal de Denuncias</button>
 
@@ -505,6 +494,11 @@ window.addEventListener('click', (e) => {
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./JS/script2.js"></script>
-    <script src="/JS/menu.js"></script>
+    <script>
+function toggleMenu() {
+  const menu = document.getElementById("nav-menu");
+  menu.classList.toggle("mostrar");
+}
+</script>
 </body>
 </html>
